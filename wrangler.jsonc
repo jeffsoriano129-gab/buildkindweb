@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers config for the BuildKind Web static site.
+  // Deploy:  npx wrangler deploy   (or connect this GitHub repo in the Cloudflare dashboard)
+  "name": "buildkindweb",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",   // serves about/index.html at /about/
+    "not_found_handling": "404-page"          // uses public/404.html for missing pages
+  }
+}

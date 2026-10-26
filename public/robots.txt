@@ -1,0 +1,5 @@
+# BuildKind Web
+User-agent: *
+Allow: /
+
+Sitemap: https://buildkindweb.com/sitemap.xml
