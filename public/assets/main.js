@@ -155,9 +155,9 @@
     const redirect = $('input[name="redirect"]', form);
     if (redirect && /^https?:/.test(location.protocol)) redirect.value = new URL(THANK_YOU, location.href).href;
 
-    // Pre-select a service from ?service=landing|starter|business|migration|fixes
+    // Pre-select a service from ?service=landing|starter|business|migration|fixes|maintenance
     const svc = new URLSearchParams(location.search).get('service');
-    const map = { landing: 'Landing Page', starter: 'Starter Website', business: 'Business Website', migration: 'Website Migration', fixes: 'Website Fixes' };
+    const map = { landing: 'Landing Page', starter: 'Starter Website', business: 'Business Website', migration: 'Website Migration', fixes: 'Website Fixes', maintenance: 'Website Maintenance' };
     const sel = $('#service', form);
     if (svc && map[svc] && sel) sel.value = map[svc];
 
