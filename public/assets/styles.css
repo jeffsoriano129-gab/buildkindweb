@@ -1055,7 +1055,7 @@ p { margin: 0 0 1em; }
 .story-layout { display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start; }
 .story-aside { position: sticky; top: 110px; display: grid; gap: 16px; }
 .aside-card { background: var(--ice); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; }
-.aside-card h4 { font-size: 1rem; margin-bottom: 12px; }
+.aside-card h2 { font-size: 1rem; margin-bottom: 12px; }
 .aside-card .check-list { margin: 0; gap: 10px; font-size: .94rem; }
 .principles--5 { grid-template-columns: repeat(6, 1fr); }
 .principles--5 > * { grid-column: span 2; }
@@ -1352,3 +1352,4 @@ mark.ph { background: #FEF3C7; color: #92400E; padding: 1px 6px; border-radius: 
 .founder-avatar img { border-radius: 21px; object-fit: cover; object-position: center 30%; background: var(--navy); }
 /* Very small phones: long button labels wrap instead of widening the page */
 @media (max-width: 400px) { .btn { white-space: normal; text-align: center; } }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
