@@ -1,0 +1,30 @@
+# BuildKind Web
+
+> BuildKind Web provides practical WordPress and HTML website design and development for small businesses, with clear starting prices, essential on-page SEO, and optional ongoing maintenance.
+
+BuildKind Web helps small businesses and entrepreneurs plan, build, improve, and maintain professional websites. Services include focused landing pages, multi-page business websites, WordPress builds using suitable page builders such as Elementor or Divi, static HTML, CSS, and JavaScript sites, website fixes, redesigns, migrations, and optional maintenance. The business serves clients in the United States, United Kingdom, Ireland, and Australia. Project scope, price, timeline, and exclusions are confirmed in a written quote.
+
+## Company and process
+
+- [Homepage](https://buildkindweb.com/): Overview of BuildKind Web, its approach to small-business websites, and its core services.
+- [About BuildKind Web](https://buildkindweb.com/about/): Background on the founder and the business's website-development approach.
+- [How It Works](https://buildkindweb.com/how-it-works/): Project process from enquiry and discovery call through written quote, build, review, and launch.
+
+## Website design and development
+
+- [Website Design & Development](https://buildkindweb.com/services/website-design-development/): Responsive WordPress and static HTML website options, included project considerations, starting packages, and platform guidance.
+- [Services & Pricing](https://buildkindweb.com/services-pricing/): Landing page, starter website, and business website starting prices, plus scope notes and additional-service pricing.
+- [Additional Services](https://buildkindweb.com/services/additional-services/): Website fixes, redesigns, migrations, WordPress and page-builder support, on-page SEO setup, forms, page additions, and custom requests.
+- [Website Maintenance](https://buildkindweb.com/services/website-maintenance/): Optional care plans for eligible websites, including updates, backups, uptime monitoring, basic security checks, and minor content edits.
+
+## Work and support
+
+- [Portfolio](https://buildkindweb.com/portfolio/): Examples of website design and development projects.
+- [Frequently Asked Questions](https://buildkindweb.com/faq/): Answers about pricing, hosting, domains, WordPress, revisions, ownership, SEO, project timing, and maintenance.
+- [Contact / Project Inquiry](https://buildkindweb.com/contact/): Start a project discussion or request a quote.
+
+## Optional
+
+- [XML Sitemap](https://buildkindweb.com/sitemap.xml): Canonical public pages intended for search-engine discovery.
+- [Privacy Policy](https://buildkindweb.com/privacy-policy/): Information about personal data submitted through the website and contact forms.
+- [Terms & Conditions](https://buildkindweb.com/terms-and-conditions/): Website-use and service-related terms.
