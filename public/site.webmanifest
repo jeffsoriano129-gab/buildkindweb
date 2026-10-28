@@ -1,0 +1,21 @@
+{
+  "name": "BuildKind Web",
+  "short_name": "BuildKind",
+  "icons": [
+    {
+      "src": "/assets/favicon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#102A43",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
