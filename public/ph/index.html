@@ -171,6 +171,20 @@ textarea.inp{resize:vertical}
 .status{font-size:15px;min-height:22px}
 .status.ok{color:#047857}.status.err{color:#B91C1C}
 .hp{position:absolute;left:-9999px;opacity:0}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld .lbl{display:block}
+.fnote{font-size:13.5px;color:var(--slate)!important}
+.req{color:#DC2626;margin-left:2px}
+.opt{color:#94A3B8;font-weight:400;font-size:12.5px;margin-left:4px}
+.err-msg{display:none;font-size:13px;font-weight:500;color:#DC2626}
+.invalid .err-msg{display:block}
+.invalid .inp{border-color:#EF4444;box-shadow:0 0 0 4px rgba(239,68,68,.1)}
+.chkrow{flex-direction:row;flex-wrap:wrap;align-items:flex-start;gap:10px 12px;font-size:14.5px;color:var(--navy)}
+.chkrow input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--blue)}
+.chkrow label{flex:1;min-width:0}
+.chkrow .err-msg{flex-basis:100%}
+.enq .form a{color:var(--blue)}
+.enq .form .status.err{color:#B91C1C!important}
 
 /* footer */
 footer{background:#0B1F33;color:var(--soft);padding:44px 0;font-size:14.5px}
@@ -473,30 +487,40 @@ footer .logo{color:#fff}
       <p class="lead">Send a quick enquiry and request a free 30-minute Google Meet consultation. You will receive a written proposal with scope, price, timeline and payment terms.</p>
       <p style="margin-top:18px">Prefer email? Write to <a href="mailto:info@buildkindweb.com">info@buildkindweb.com</a>.</p>
     </div>
-    <form class="form rv" id="enqForm" style="--d:.12s" novalidate>
-      <!-- TODO: replace with your Web3Forms access key -->
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-      <input type="hidden" name="subject" value="New enquiry from BuildKind Web (Philippines page)">
-      <input type="hidden" name="from_name" value="BuildKind Web">
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <!-- Same form as /contact/: same Web3Forms key, field names, validation and /thank-you/ redirect -->
+    <form class="form rv" id="enqForm" style="--d:.12s" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="0899c4ae-7b70-4345-a036-86aee435a265">
+      <input type="hidden" name="subject" value="New project inquiry (Philippines) — BuildKind Web">
+      <input type="hidden" name="from_name" value="BuildKind Web Website">
+      <input type="hidden" name="redirect" value="https://buildkindweb.com/thank-you/">
+      <input type="hidden" name="Source page" value="Philippines page (/ph)">
+      <p class="fnote">Fields marked <span class="req">*</span> are required.</p>
       <div class="two">
-        <label class="lbl">Full name<input class="inp" type="text" name="name" autocomplete="name" required></label>
-        <label class="lbl">Email<input class="inp" type="email" name="email" autocomplete="email" required></label>
+        <div class="fld"><label class="lbl" for="name">Full name<span class="req" aria-hidden="true">*</span></label><input class="inp" id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-err"><span class="err-msg" id="name-err">Please enter your name.</span></div>
+        <div class="fld"><label class="lbl" for="business">Business name<span class="opt">(optional)</span></label><input class="inp" id="business" name="Business name" type="text" autocomplete="organization"></div>
       </div>
-      <label class="lbl">Business name<input class="inp" type="text" name="business"></label>
-      <label class="lbl">What do you need?
-        <select class="inp" name="package">
-          <option>Landing Page (from ₱5,000)</option>
-          <option>Starter Website (from ₱12,000)</option>
-          <option>Business Website (from ₱22,000)</option>
-          <option>Custom or established-business project</option>
-          <option>Not sure yet</option>
-        </select>
-      </label>
-      <label class="lbl">Tell us a little about your project<textarea class="inp" name="message" rows="4"></textarea></label>
-      <label class="lbl">Preferred consultation time (optional)<input class="inp" type="text" name="preferred_time" placeholder="e.g. weekday afternoons, Philippine time"></label>
-      <button class="btn" type="submit" id="enqBtn">Send enquiry</button>
-      <p class="status" id="enqStatus" role="status" aria-live="polite" style="color:var(--slate)"></p>
+      <div class="two">
+        <div class="fld"><label class="lbl" for="email">Email address<span class="req" aria-hidden="true">*</span></label><input class="inp" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-err"><span class="err-msg" id="email-err">Please enter a valid email address.</span></div>
+        <div class="fld"><label class="lbl" for="country">Country / time zone<span class="opt">(optional)</span></label><input class="inp" id="country" name="Country / time zone" type="text" placeholder="e.g. Philippines (PHT)"></div>
+      </div>
+      <div class="fld"><label class="lbl" for="website">Current website URL<span class="opt">(optional)</span></label><input class="inp" id="website" name="Current website" type="url" inputmode="url" placeholder="https://"></div>
+      <div class="two">
+        <div class="fld"><label class="lbl" for="service">Service needed<span class="opt">(optional)</span></label>
+          <select class="inp" id="service" name="Service needed"><option value="">Please select…</option><option>Landing Page</option><option>Starter Website</option><option>Business Website</option><option>Website Migration</option><option>Website Fixes</option><option>Website Maintenance</option><option>Not sure yet</option></select></div>
+        <div class="fld"><label class="lbl" for="budget">Estimated budget<span class="opt">(optional)</span></label>
+          <select class="inp" id="budget" name="Estimated budget"><option value="">Please select…</option><option>Under ₱5,000</option><option>₱5,000–₱12,000</option><option>₱12,000–₱22,000</option><option>₱22,000+</option><option>Not sure yet</option></select></div>
+      </div>
+      <div class="fld"><label class="lbl" for="timeframe">Desired timeframe<span class="opt">(optional)</span></label><input class="inp" id="timeframe" name="Desired timeframe" type="text" placeholder="e.g. Within 6 weeks"></div>
+      <div class="fld"><label class="lbl" for="details">Project details<span class="req" aria-hidden="true">*</span></label><textarea class="inp" id="details" name="Project details" rows="5" required aria-describedby="details-err" placeholder="What does your business do, and what would you like your website to achieve?"></textarea><span class="err-msg" id="details-err">Please tell us a little about your project.</span></div>
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="fld chkrow">
+        <input id="privacy" name="Privacy Policy" type="checkbox" value="Agreed" required aria-describedby="privacy-err">
+        <label for="privacy">I have read the <a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> and understand how my inquiry details will be used.<span class="req" aria-hidden="true">*</span></label>
+        <span class="err-msg" id="privacy-err">Please confirm you have read the Privacy Policy.</span>
+      </div>
+      <p class="fnote">Please don't include passwords or payment details.</p>
+      <button class="btn" type="submit" id="enqBtn">Send Project Inquiry</button>
+      <p class="status err" id="enqStatus" role="alert" hidden>Your inquiry could not be submitted. Please try again or email <a href="mailto:info@buildkindweb.com" style="color:inherit;text-decoration:underline">info@buildkindweb.com</a>.</p>
     </form>
   </div>
 </section>
@@ -526,23 +550,46 @@ footer .logo{color:#fff}
     els.forEach(function(el){io.observe(el)});
   } else { els.forEach(function(el){el.classList.add('in')}); }
 
-  // enquiry form -> Web3Forms
-  var f=document.getElementById('enqForm'),s=document.getElementById('enqStatus'),b=document.getElementById('enqBtn');
+  // enquiry form -> Web3Forms (same behaviour as the /contact/ form in /assets/main.js)
+  var f=document.getElementById('enqForm'),err=document.getElementById('enqStatus'),b=document.getElementById('enqBtn');
+  var THANK_YOU='/thank-you/';
   f.addEventListener('submit',function(ev){
     ev.preventDefault();
-    if(!f.checkValidity()){f.reportValidity();return}
-    b.disabled=true;b.textContent='Sending…';s.className='status';s.textContent='';
-    fetch('https://api.web3forms.com/submit',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(Object.fromEntries(new FormData(f)))
-    }).then(function(r){return r.json()}).then(function(d){
-      if(d.success){f.reset();s.className='status ok';s.textContent='Thank you. Your enquiry has been sent and we will be in touch shortly.'}
-      else{throw new Error(d.message||'Failed')}
-    }).catch(function(){
-      s.className='status err';s.textContent='Something went wrong. Please email info@buildkindweb.com instead.';
-    }).finally(function(){b.disabled=false;b.textContent='Send enquiry'});
+    err.hidden=true;
+    var bot=f.querySelector('input[name="botcheck"]');
+    if(bot&&bot.checked)return; // spam bot ticked the hidden box
+
+    var valid=true;
+    f.querySelectorAll('[required]').forEach(function(el){
+      var good=el.type==='checkbox'?el.checked
+        :el.value.trim()&&(el.type!=='email'||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      el.closest('.fld').classList.toggle('invalid',!good);
+      if(!good)valid=false;
+    });
+    if(!valid){var first=f.querySelector('.invalid input, .invalid textarea, .invalid select');if(first)first.focus();return}
+
+    b.disabled=true;b.textContent='Sending…';
+    // Email subject, e.g. "New project inquiry (Philippines): Starter Website – Dela Cruz Bakery"
+    var data=new FormData(f);
+    var bits=[data.get('Service needed'),data.get('Business name')||data.get('name')].filter(Boolean);
+    data.set('subject','New project inquiry (Philippines)'+(bits.length?': '+bits.join(' – '):''));
+    data.delete('redirect');
+    Array.from(data.keys()).forEach(function(k){if(typeof data.get(k)==='string'&&!data.get(k).trim())data.delete(k)}); // skip blank optional fields
+
+    fetch(f.action,{method:'POST',body:data,headers:{Accept:'application/json'}})
+      .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok||j.success===false)throw new Error(j.message||'Request failed')})})
+      .then(function(){
+        try{sessionStorage.setItem('bkw-inquiry-name',String(data.get('name')||'').split(' ')[0])}catch(_){}
+        window.location.href=THANK_YOU;
+      })
+      .catch(function(){
+        err.hidden=false;err.scrollIntoView({block:'center'});
+        b.disabled=false;b.textContent='Send Project Inquiry';
+      });
   });
+  f.querySelectorAll('input, textarea, select').forEach(function(el){el.addEventListener('input',function(){
+    var w=el.closest('.fld');if(w)w.classList.remove('invalid');
+  })});
 })();
 </script>
 </body>
