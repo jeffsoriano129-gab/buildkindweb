@@ -130,7 +130,7 @@
       const card = shot.closest('.work-card');
       lbTitle.textContent = $('h3', card).textContent;
       lbNiche.textContent = $('.work-niche', card).textContent;
-      lbImg.hidden = true; lbLoad.hidden = false;
+      lbImg.hidden = true; lbLoad.hidden = false; lbLoad.textContent = 'Loading full-page screenshot…';
       lbImg.onload = () => { lbLoad.hidden = true; lbImg.hidden = false; };
       lbImg.alt = 'Full-page screenshot of the ' + lbTitle.textContent + ' website';
       lbImg.src = $('img', shot).src;
