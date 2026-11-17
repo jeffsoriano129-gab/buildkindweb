@@ -2,10 +2,13 @@
   // Cloudflare Workers config for the BuildKind Web static site.
   // Deploy:  npx wrangler deploy   (or connect this GitHub repo in the Cloudflare dashboard)
   "name": "buildkindweb",
+  "main": "src/index.js",                      // only handles /ph (Philippines-only access)
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./public",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",   // serves about/index.html at /about/
-    "not_found_handling": "404-page"          // uses public/404.html for missing pages
+    "not_found_handling": "404-page",         // uses public/404.html for missing pages
+    "run_worker_first": ["/ph", "/ph/*"]       // run src/index.js for these paths only
   }
 }
